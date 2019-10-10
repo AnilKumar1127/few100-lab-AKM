@@ -2,24 +2,18 @@ import { getTotalAmtWithTip } from './utils';
 
 let bill = 0;
 let inputSum: HTMLInputElement;
-let custTip: HTMLInputElement;
+let custTipAmt: HTMLInputElement;
+let custTipBt: HTMLElement;
 let seletdTip: NodeListOf<HTMLButtonElement>;
 const grndTotal = document.getElementById('grndtotal');
 // let sum: number;
 export function runApp() {
     seletdTip = document.querySelectorAll('button');
     inputSum = document.getElementById('totalAmt') as HTMLInputElement;
-    custTip = document.getElementById('custmAmt') as HTMLInputElement;
+    custTipAmt = document.getElementById('custmAmt') as HTMLInputElement;
+    custTipBt = document.getElementById('custTip');
     seletdTip.forEach(el => el.addEventListener('click', handleClick));
-
-
-    // if (custTip.valueAsNumber === null) {
-    //     seletdTip.forEach(el => el.addEventListener('click', handleClick));
-    // } else if (custTip.valueAsNumber != null) {
-    //     const x = getTotalAmtWithTip(custTip.valueAsNumber, bill);
-    //     grndTotal.innerText = 'Total Amount:$' + x.toString();
-    // }
-
+    custTipBt.addEventListener('click', custTipCal);
 }
 
 function handleClick() {
@@ -38,4 +32,9 @@ function handleClick() {
     grndTotal.innerText = 'Total Amount:$' + x.toString();
 }
 
+function custTipCal() {
+    const nowTip = custTipAmt.valueAsNumber;
+    const x = getTotalAmtWithTip(nowTip, bill);
+    grndTotal.innerText = 'Total Amount:$' + x.toString();
+}
 runApp();
