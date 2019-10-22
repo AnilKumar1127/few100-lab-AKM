@@ -40,7 +40,7 @@ function handleClick() {
 
     const nway = tipSlpitInput.valueAsNumber;
     const youPay = (calTipAmt / nway);
-    sptAmtInto.innerText = 'Amout is Split into"' + nway + '"ways:$' + youPay.toString();
+    sptAmtInto.innerText = 'Amout is Split into"' + nway + '"ways: $' + youPay.toString();
 }
 
 function custTipCal() {
@@ -51,7 +51,7 @@ function custTipCal() {
     grndTotal.innerText = 'Total Amount:$' + calTipAmt.toString();
     const nway = tipSlpitInput.valueAsNumber;
     const youPay = (calTipAmt / nway);
-    sptAmtInto.innerText = 'Amout is Split into"' + nway + '"ways:$' + youPay.toString();
+    sptAmtInto.innerText = 'Amout is Split into"' + nway + '"ways: $' + youPay.toString();
 }
 
 runApp();
